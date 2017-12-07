@@ -47,6 +47,7 @@ class Warrior(Character):
         self.weapons = { 'Arme tranchante' : [Sword(),Dagger(),Axe()],
         'Arme contondante' : [Warhammer(),Club(),Staff()]}
 
+
     def display_weapons(self):
         """Méthode qui affiche les armes du guerrier"""
         print("Armes :")
@@ -54,7 +55,8 @@ class Warrior(Character):
             for weapon in liste_weapons:
                 print("-",gender,":")
                 print("-",weapon.name,"→ Puissance :",weapon.power)
-                
+
+    """Méthode initialisant l'endurance du guerrier"""                
 
 class Wizard(Character):
     """Classe qui définit un personnage de type magicien"""
@@ -71,6 +73,8 @@ class Wizard(Character):
                 print("-",field,":")
                 print("-",spell.name,"→ Puissance :",spell.power)
 
+    """Méthode initialisant la mana du magicien"""
+   
 class Weapons:
     """Méthode qui affiche le nom, la puissance et la vitesse des armes"""
     def __str__(self):
@@ -81,37 +85,43 @@ class Sword(Weapons):
         self.name = "Épée"
         self.power = 70
         self.speed = 30
+        """self.stamina = 25"""
 
 class Dagger(Weapons):
     def __init__(self):
         self.name = "Poignard"
         self.power = 30
         self.speed = 80
+        """self.stamina = 10"""
 
 class Axe(Weapons):
     def __init__(self):
         self.name = "Hache de Combat"
         self.power = 80
         self.speed = 25
+        """self.stamina = 30"""
+
 
 class Warhammer(Weapons):
     def __init__(self):
         self.name = "Marteau de Guerre"
         self.power = 95
         self.speed = 8
+        """self.stamina = 50"""
 
 class Club(Weapons):
     def __init__(self):
         self.name = "Massue"
         self.power = 65
         self.speed = 35
+        """self.stamina = 15"""
 
 class Staff(Weapons):
     def __init__(self):
         self.name = "Bâton"
         self.power = 25
         self.speed = 66
-
+        """self.stamina = 10"""
 
 class Spells:
     """Méthode qui affiche le nom des sorts"""
@@ -122,31 +132,37 @@ class Agi(Spells):
     def __init__(self):
         self.name = "Agi"
         self.power = 45
+        """self.mana = 25"""
 
 class Zio(Spells):
     def __init__(self):
         self.name = "Zio"
         self.power = 45
+        """self.mana = 25"""
 
 class Bufu(Spells):
     def __init__(self):
         self.name = "Bufu"
         self.power = 45
+        """self.mana = 25"""
 
 class Dia(Spells):
     def __init__(self):
         self.name = "Dia"
         self.power = 45
+        """self.mana = 35"""
 
 class Media(Spells):
     def __init__(self):
         self.name = "Media"
         self.power = 65
+        """self.mana = 45"""
 
 class Recarm(Spells):
     def __init__(self):
         self.name = "Recarm"
-        self.power = 85
+        self.power = 95
+        """self.mana = 65"""
 
 char_name = input("Quel est le nom de votre personnage ? ")
 char_race = input("Quel est sa race ? ")
