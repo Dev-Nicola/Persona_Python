@@ -8,6 +8,8 @@ class Character:
     def __str__(self):
         """Méthode qui affiche le nom de l'objet courant"""
         return "Ce personnage s'appelle " + self.name
+    
+    def char_persona(self):
 
     def choose_stats(self):
         """Méthode qui demande à l'utilisateur de choisir les caractéristiques de son personnage.
