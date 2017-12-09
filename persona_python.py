@@ -12,11 +12,11 @@ class Character:
     def choose_stats(self):
         """Méthode qui demande à l'utilisateur de choisir les caractéristiques de son personnage.
         Il a 300 points à répartir en 6 caractéristiques."""
-        liste_stats = ['force','dextérité','constitution','intelligence','sagesse','charisme']
+        liste_stats = ['Force','Dextérité','Constitution','Intelligence','Sagesse','Charisme']
         total = 0
         stats_max = 300
         for stat in liste_stats:
-            print("Choisissez une valeur pour vos caractéristiques",stat,": ")
+            print("Choisissez une valeur pour votre caractéristique",stat.lower(),": ")
             value = int(input())
             total += value
             while total > stats_max:
@@ -25,11 +25,14 @@ class Character:
                 value = int(input())
                 total = total + value
             self.stats[stat] = value
+            print(stat,"→",self.stats[stat])
             print("Points de caractéristiques restants :", stats_max - total,"points.")
+        return self.stats[stat]
 
     def display_stats(self):
+        """Méthode pour afficher les caractéristiques du personnage"""
         for stat in self.stats:
-            print("-",stat)
+                print("-",stat,"→ ",self.stats[stat])
 
     def display_state(self):
         """Méthode qui affiche l'état du personnage : nom, pv, etc..."""
@@ -51,9 +54,9 @@ class Warrior(Character):
     def display_weapons(self):
         """Méthode qui affiche les armes du guerrier"""
         print("Armes :")
-        for gender,liste_weapons in self.weapons.items():
+        for genre,liste_weapons in self.weapons.items():
             for weapon in liste_weapons:
-                print("-",gender,":")
+                print("-",genre,":")
                 print("-",weapon.name,"→ Puissance :",weapon.power)
 
     """Méthode initialisant l'endurance du guerrier"""                
@@ -165,8 +168,8 @@ class Recarm(Spells):
         """self.mana = 65"""
 
 char_name = input("Quel est le nom de votre personnage ? ")
-char_race = input("Quel est sa race ? ")
-char_gender = input("De quel genre est-il ? ")
+char_race = input("Quel est sa race ? ") """Créer condition entre races"""
+char_gender = input("De quel genre est-il ? ") """Créer condition entre homme/femme"""
 char = Wizard(char_name,char_race,char_gender) #créer un objet de classe Personnage/Magicien
 char1 = Warrior(char_name,char_race,char_gender)
 char.choose_stats()
@@ -174,6 +177,8 @@ char.display_stats()
 char.display_state()
 char1.display_weapons()
 char.display_spells()
+
+"""Le personnage se prend un coup"""
 print(char_name,"subit une attaque.")
 char.hp = char.hp - 10
 char.display_state()
