@@ -9,7 +9,8 @@ class Character:
         """Méthode qui affiche le nom de l'objet courant"""
         return "Ce personnage s'appelle " + self.name
     
-    def char_persona(self):
+    def char_race(self):
+        """Méthode pour choisir race"""
 
     def choose_stats(self):
         """Méthode qui demande à l'utilisateur de choisir les caractéristiques de son personnage.
