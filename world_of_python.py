@@ -8,9 +8,6 @@ class Character:
     def __str__(self):
         """Méthode qui affiche le nom de l'objet courant"""
         return "Ce personnage s'appelle " + self.name
-    
-    def char_race(self):
-        """Méthode pour choisir race"""
 
     def choose_stats(self):
         """Méthode qui demande à l'utilisateur de choisir les caractéristiques de son personnage.
@@ -171,8 +168,8 @@ class Recarm(Spells):
         """self.mana = 65"""
 
 char_name = input("Quel est le nom de votre personnage ? ")
-char_race = input("Quel est sa race ? ") """Créer condition entre races"""
-char_gender = input("De quel genre est-il ? ") """Créer condition entre homme/femme"""
+char_race = input("Quel est sa race ? ") #Créer condition entre races
+char_gender = input("De quel genre est-il ? ") #Créer condition entre homme/femme"""
 char = Wizard(char_name,char_race,char_gender) #créer un objet de classe Personnage/Magicien
 char1 = Warrior(char_name,char_race,char_gender)
 char.choose_stats()
