@@ -1,13 +1,48 @@
 
 class Character:
     """Classe qui définit un personnage dans un jeu d'aventure"""
-    def __init__(self,name,race,gender):
+    def __init__(self):
         """Constructeur d'un objet de classe personnage"""
-        self.name,self.hp,self.race,self.gender,self.stats = name,100,race,gender,dict()
+        self.hp,self.stats = 100,dict() """en faire des méthodes ?"""
+        self.name = self.choose_name()
+        self.race = self.choose_race()
+        self.gender = self.choose_gender()
 
     def __str__(self):
         """Méthode qui affiche le nom de l'objet courant"""
         return "Ce personnage s'appelle " + self.name
+
+    def choose_name(self):
+        char_name = input("Quel est le nom de votre personnage ? ")
+        return char_name
+
+    def choose_race(self):
+        """Méthode pour choisir la race du personnage"""
+        while True:
+            char_race = input("Quel est sa race ? [humain/elfe de la nuit/orc/mort-vivant] : ")
+            if char_race == "humain":
+                print(self.name,"est un humain.")
+                return char_race
+            elif char_race == "elfe de la nuit":
+                print(self.name,"est un elfe de la nuit.")
+                return char_race
+            elif char_race == "orc":
+                print(self.name,"est un orc.")
+                return char_race
+            elif char_race == "mort-vivant":
+                print(self.name,"est un mort-vivant.")
+                return char_race
+
+    def choose_gender(self):
+        """Méthode pour choisir le genre du personnage"""
+        while True:
+            char_gender = input("De quel genre est-il ? [masculin/féminin] :")
+            if char_gender == "masculin":
+                print(self.name,"est un homme.")
+                return char_gender
+            elif char_gender == "féminin":
+                print(self.name,"est une femme.")
+                return char_gender
 
     def choose_stats(self):
         """Méthode qui demande à l'utilisateur de choisir les caractéristiques de son personnage.
@@ -44,9 +79,9 @@ class Character:
 
 class Warrior(Character):
     """Classe qui définit un personnage de type guerrier"""
-    def __init__(self,name,race,gender):
+    def __init__(self):
         """Constructeur de la classe Guerrier qui ajoute les armes en plus de nom, tribu et genre"""
-        super().__init__(name,race,gender)
+        super().__init__()
         self.weapons = { 'Arme tranchante' : [Sword(),Dagger(),Axe()],
         'Arme contondante' : [Warhammer(),Club(),Staff()]}
 
@@ -63,8 +98,8 @@ class Warrior(Character):
 
 class Wizard(Character):
     """Classe qui définit un personnage de type magicien"""
-    def __init__(self,name,race,gender):
-        super().__init__(name,race,gender)
+    def __init__(self):
+        super().__init__()
         self.spells = { 'Magie Noire' : [Agi(),Zio(),Bufu()],
         'Magie Blanche':[Dia(),Media(),Recarm()]}
 
@@ -167,18 +202,19 @@ class Recarm(Spells):
         self.power = 95
         """self.mana = 65"""
 
-char_name = input("Quel est le nom de votre personnage ? ")
-char_race = input("Quel est sa race ? ") #Créer condition entre races
-char_gender = input("De quel genre est-il ? ") #Créer condition entre homme/femme"""
-char = Wizard(char_name,char_race,char_gender) #créer un objet de classe Personnage/Magicien
-char1 = Warrior(char_name,char_race,char_gender)
+#char_name = input("Quel est le nom de votre personnage ? ")
+#char_race = input("Quel est sa race ? [humain/elfe de la nuit/orc/mort-vivant] : ") #Créer condition entre races
+#char_gender = input("De quel genre est-il ? [masculin/féminin] :") #Créer condition entre genres
+
+char = Warrior() #créer un objet de classe Personnage/Guerrier
+#char1 = Wizard() #créer un objet de classe Personnage/Magicien
 char.choose_stats()
 char.display_stats()
-char.display_state()
-char1.display_weapons()
-char.display_spells()
+char.display_weapons()
+#char1.display_spells()
 
+char.display_state()
 """Le personnage se prend un coup"""
-print(char_name,"subit une attaque.")
+print(char.choose_name(),"subit une attaque.")
 char.hp = char.hp - 10
 char.display_state()
